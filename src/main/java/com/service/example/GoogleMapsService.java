@@ -28,15 +28,15 @@ public class GoogleMapsService {
     public GoogleMapsService() {
     }
 
-    @GetMapping("/routetime/{startCoord}/{endCoord}")
+    @GetMapping("/routetime")
     @ResponseBody
     public String ComputeRoute(
-            @PathVariable("startCoord") String startCoord,
-            @PathVariable("endCoord") String endCoord
+            @RequestParam String start,
+            @RequestParam String end
     ) {
         String url = "" + BaseRequest;
-        url += "origins=" + startCoord;
-        url += "&destinations=" + endCoord;
+        url += "origins=" + start;
+        url += "&destinations=" + end;
         url += "&key=" + API_KEY;
         Response response = null;
         String bodyResponse = "";
@@ -62,10 +62,10 @@ public class GoogleMapsService {
 
             Gson gsonObj = new Gson();
             Map<String, Object> inputMap = new HashMap<String, Object>();
-            inputMap.put("coordinates_start", startCoord);
-            inputMap.put("coordinates_end", endCoord);
-            inputMap.put("time", time / 60.0f);
-            inputMap.put("distance", dist / 1000.0f);
+            inputMap.put("coordinates_start", start);
+            inputMap.put("coordinates_end", end);
+            inputMap.put("time", time);
+            inputMap.put("distance", dist);
             String jsonStr = gsonObj.toJson(inputMap);
 
             return jsonStr;
