@@ -34,6 +34,9 @@ public class GoogleMapsService {
             @RequestParam String start,
             @RequestParam String end
     ) {
+        if(API_KEY == null || API_KEY == "" || API_KEY == "NO_API_KEY_SET")
+            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "No API key set in the system, see documentation");
+
         String url = "" + BaseRequest;
         url += "origins=" + start;
         url += "&destinations=" + end;

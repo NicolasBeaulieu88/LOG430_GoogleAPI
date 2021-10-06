@@ -1,5 +1,10 @@
 # LOG430-Eq07
+## Pour Runner l'app en local
 
+### Prérequis
+- Avoir une clef pour Google API
+- Avoir une variable d'environnement "GOOGLE_API_KEY" contenant la clef
+- Avoir le port 8007 disponible
 
 ## Comment Builder & Runner l'app avec Docker
 
@@ -21,8 +26,8 @@
 
 ### 2e étape: Creer l'image Docker
 - À partir de la racine du projet, lancer la commande
-  ```docker build -t springio/eq07-rcs1 .```
+  ```docker build -t springio/eq07-googleapi .```
 
 ### 3e étape: Lancer un container avec l'image créée
 - Dans Powershell, executer la commande
-  ```docker run -p 8080:8080 springio/eq07-rcs1```
+  ```docker run -p 8007:8007 -e GOOGLE_API_KEY=<Votre API KEY> springio/eq07-googleapi```
