@@ -22,7 +22,7 @@ public class GoogleMapsService {
     //private String BaseRequest = "https://maps.googleapis.com/maps/api/distancematrix/json?origins={1}&destinations={2}&key={3}";
     private String BaseRequest = "https://maps.googleapis.com/maps/api/distancematrix/json?";
 
-    private static String API_KEY = "AIzaSyB5kM0iyZrB1v55tIs2bcq6RjlB_bfzrs8";
+    private static String API_KEY = System.getenv("GOOGLE_API_KEY");
 
 
     public GoogleMapsService() {
