@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Docker build" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="docker build -t springio/eq07-googleapi ." />
+  <configuration default="false" name="docker run" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="docker run -p 8007:8007 -e GOOGLE_API_KEY=$Env:GOOGLE_API_KEY springio/eq07-googleapi" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
